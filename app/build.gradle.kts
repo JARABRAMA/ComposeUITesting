@@ -52,4 +52,11 @@ dependencies {
   androidTestImplementation(libs.androidx.junit)
   debugImplementation(libs.androidx.compose.ui.test.manifest)
   debugImplementation(libs.androidx.compose.ui.tooling)
+  // Source: https://mvnrepository.com/artifact/org.mockito.kotlin/mockito-kotlin
+
+  androidTestImplementation(libs.mockito.kotlin) {
+    exclude(group = "org.mockito", module = "mockito-core")
+  }
+  androidTestImplementation(libs.mockito.android)
+
 }

@@ -16,6 +16,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jarabrama.composeuitesting.R
@@ -37,9 +39,12 @@ fun ContactCard(contact: Contact, index: Int, onRemove: (Int) -> Unit) {
         Text("Contacto", style = MaterialTheme.typography.titleMedium)
         ContactRow("Nombre:", contact.name)
         ContactRow("Teléfono:", contact.phone)
-        ContactRow("Descripción:", contact.description ?: "Sin descripción")
+        ContactRow(
+          "Descripción:", contact.description ?: "Sin descripción" +
+          ""
+        )
       }
-      IconButton({ onRemove(index) }) {
+      IconButton({ onRemove(index) }, Modifier.semantics { testTag = "delete_button" }) {
         Icon(painterResource(R.drawable.delete), "Eliminar")
       }
     }
