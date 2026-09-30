@@ -44,6 +44,7 @@ dependencies {
   implementation(libs.androidx.compose.ui.tooling.preview)
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
+  implementation(libs.androidx.material3)
   testImplementation(libs.junit)
   androidTestImplementation(platform(libs.androidx.compose.bom))
   androidTestImplementation(libs.androidx.compose.ui.test.junit4)
@@ -51,4 +52,11 @@ dependencies {
   androidTestImplementation(libs.androidx.junit)
   debugImplementation(libs.androidx.compose.ui.test.manifest)
   debugImplementation(libs.androidx.compose.ui.tooling)
+  // Source: https://mvnrepository.com/artifact/org.mockito.kotlin/mockito-kotlin
+
+  androidTestImplementation(libs.mockito.kotlin) {
+    exclude(group = "org.mockito", module = "mockito-core")
+  }
+  androidTestImplementation(libs.mockito.android)
+
 }
